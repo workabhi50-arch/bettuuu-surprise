@@ -194,7 +194,17 @@ function toggleMusic(){
 
 // 💌 Show Message
 function showMessage(){
-  let index = new Date().getDate() % messages.length;
+
+  let today = new Date();
+  let target = new Date("May 27, 2026");
+
+  let diff = Math.ceil((target - today)/(1000*60*60*24));
+
+  let index = 27 - diff;
+
+  if(index < 0) index = 0;
+  if(index >= messages.length) index = messages.length - 1;
+
   let msg = document.getElementById("message");
 
   msg.innerText = messages[index];
