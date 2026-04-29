@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bettuuu ❤️</title>
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align:center;
+  color:white;
+  padding:20px;
+  overflow:hidden;
+
+  /* 🌆 Romantic Delhi Night Gradient */
+  background: linear-gradient(135deg, #2c003e, #ff4e88, #1a001f);
+}
+
+/* ✨ Glow Title */
+h1 {
+  font-size: 26px;
+  text-shadow: 0 0 10px pink, 0 0 20px red;
+}
+
+/* 💎 Glass Card */
+.box {
+  margin-top:30px;
+  padding:25px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(255, 0, 100, 0.4);
+}
+
+/* 💌 Button */
+button {
+  padding:14px 22px;
+  border:none;
+  border-radius:20px;
+  background: linear-gradient(45deg, #ff4e88, #ff004c);
+  color:white;
+  font-size:16px;
+  margin-top:15px;
+  box-shadow: 0 0 15px pink;
+}
+
+/* 💬 Message */
+#message {
+  margin-top:20px;
+  font-size:18px;
+  line-height:1.6;
+  opacity:0;
+  transition: opacity 1.5s ease;
+}
+.show {
+  opacity:1 !important;
+}
+
+/* 🎵 Music Button */
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, pink, red);
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 18px;
+}
+
+/* 💕 Floating Hearts */
+.heart {
+  position: fixed;
+  font-size: 18px;
+  animation: float 6s linear infinite;
+}
+@keyframes float {
+  0% {transform: translateY(0); opacity:1;}
+  100% {transform: translateY(-900px); opacity:0;}
+}
+
+/* ⏳ Countdown Style */
+#countdown {
+  font-size: 24px;
+  line-height: 1.6;
+  text-shadow: 0 0 10px pink;
+}
+</style>
+</head>
+
+<body onclick="startMusicOnce()">
+
+<h1 id="title">Hey Bettuuu ❤️</h1>
+<p>Yupp… just for you 💕</p>
+
+<audio id="bgMusic" loop></audio>
+
+<div class="box">
+  <h2 id="countdown"></h2>
+  <button onclick="showMessage()">Open Today 💌</button>
+  <p id="message"></p>
+</div>
+
+<button onclick="toggleMusic()" id="musicBtn">🎵</button>
+
+<script>
+
+// ❤️ Title animation
+const hearts = ["❤️","💗","💖","💕"];
+setInterval(()=>{
+  let h = hearts[Math.floor(Math.random()*hearts.length)];
+  document.getElementById("title").innerText = "Hey Bettuuu " + h;
+},2000);
+
+// 💌 Messages
+const messages = [
+"Yupp… countdown start ho gaya Bettuuu ❤️💗",
+"Tumhari chhoti chhoti baatein… Monkey ko pasand hai 🐒💖",
+"Tum ‘yupp’ bolti ho… cutest sound krta h 😄💕",
+"Tum meri peaceful jagah ho 🌿💗",
+"Tum meri daily happiness ho ❤️🥺",
+"Tumhari smile = instant mood fix 💕",
+"Tum sensitive ho… aur wahi tumhe special banata hai 💖",
+"Monkey ka favourite place 👉 tumhari baaton mein 😌💕",
+"Tumhare ‘nope’ bhi cute lagte hain 😏💗",
+"Main bas tumhe khush dekhna chahta hoon ❤️✨",
+"Tumhari care subtle hai… par feel deep hoti hai 💕",
+"Tum meri aadat ban rahi ho 😌💖",
+"Agar rewind milta toh jaldi milta ❤️",
+"Tum meri peace ho 🌿💗",
+"Tum real ho ya dream? 💭💕",
+"Tumhari simplicity hi beauty hai 💖",
+"Bettuuu = best decision 🐒💗",
+"Excitement double ho raha hai 😄❤️",
+"Tumhare saath sab special lagta hai 💕",
+"Tum meri story ka best chapter ho 📖💗",
+"1 week left 😌❤️",
+"Tum forest vibe girl ho 🌲💖",
+"Monkey already smiling 😄💗",
+"Tum ho toh sab simple lagta hai ❤️",
+"Pamper incoming 😏💕",
+"Ready rehna Bettuuu 💗✨",
+"Kal tumhara birthday nahi… meri life ka best day hai ❤️🥺"
+];
+
+// 🎵 Shuffle Songs
+const allSongs = ["song1.mp3","song2.mp3","song3.mp3","song4.mp3"];
+let lastSong = "";
+
+function getSong(){
+  let song;
+  do {
+    song = allSongs[Math.floor(Math.random()*allSongs.length)];
+  } while(song === lastSong);
+  lastSong = song;
+  return song;
+}
+
+let isPlaying = false;
+let started = false;
+
+function playMusic(){
+  let music = document.getElementById("bgMusic");
+  let file = getSong();
+
+  if(music.src.indexOf(file) === -1){
+    music.src = file;
+  }
+
+  music.volume = 0.3;
+  music.play();
+  isPlaying = true;
+}
+
+function startMusicOnce(){
+  if(!started){
+    playMusic();
+    started = true;
+  }
+}
+
+function toggleMusic(){
+  let music = document.getElementById("bgMusic");
+
+  if(isPlaying){
+    music.pause();
+    document.getElementById("musicBtn").innerText = "🎵";
+    isPlaying = false;
+  } else {
+    playMusic();
+    document.getElementById("musicBtn").innerText = "⏸️";
+  }
+}
+
+// 💌 Show Message
+function showMessage(){
+  let index = new Date().getDate() % messages.length;
+  let msg = document.getElementById("message");
+
+  msg.innerText = messages[index];
+  msg.classList.remove("show");
+
+  setTimeout(()=> msg.classList.add("show"), 100);
+
+  playMusic();
+  createHearts();
+}
+
+// 💕 Hearts
+function createHearts(){
+  for(let i=0;i<6;i++){
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.top = "100vh";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),6000);
+  }
+}
+
+// ⏳ Real-time Countdown
+let targetDate = new Date("May 27, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+  let now = new Date().getTime();
+  let gap = targetDate - now;
+
+  if(gap <= 0){
+    document.getElementById("countdown").innerHTML = "It’s your day Bettuuu 🎂❤️";
+    return;
+  }
+
+  let d = Math.floor(gap/(1000*60*60*24));
+  let h = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+  let m = Math.floor((gap%(1000*60*60))/(1000*60));
+  let s = Math.floor((gap%(1000*60))/1000);
+
+  document.getElementById("countdown").innerHTML =
+  `💖 ${d} days <br> 💕 ${h} hrs <br> 💗 ${m} min <br> ❤️ ${s} sec`;
+},1000);
+
+</script>
+
+</body>
+</html>
