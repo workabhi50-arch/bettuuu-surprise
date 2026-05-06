@@ -2,150 +2,335 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Pyaalaa Bettuuu ❤️</title>
 
 <style>
-body {
+
+body{
   margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  text-align:center;
-  color:white;
   padding:20px;
-  overflow:hidden;
+  overflow-x:hidden;
 
-  /* 🌆 Romantic Delhi Night Gradient */
-  background: linear-gradient(135deg, #2c003e, #ff4e88, #1a001f);
-}
+  font-family:'Segoe UI',sans-serif;
 
-/* ✨ Glow Title */
-h1 {
-  font-size: 26px;
-  text-shadow: 0 0 10px pink, 0 0 20px red;
-}
-
-/* 💎 Glass Card */
-.box {
-  margin-top:30px;
-  padding:25px;
-  border-radius:20px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 25px rgba(255, 0, 100, 0.4);
-}
-
-/* 💌 Button */
-button {
-  padding:14px 22px;
-  border:none;
-  border-radius:20px;
-  background: linear-gradient(45deg, #ff4e88, #ff004c);
   color:white;
-  font-size:16px;
-  margin-top:15px;
-  box-shadow: 0 0 15px pink;
+  text-align:center;
+
+  background:
+  radial-gradient(circle at top left,#ffb6d9 0%,transparent 30%),
+  radial-gradient(circle at bottom right,#ffd6e7 0%,transparent 30%),
+  linear-gradient(135deg,#ff7eb3,#ffb6d9,#cdb4ff);
+
+  background-size:400% 400%;
+
+  animation:bgMove 12s ease infinite;
 }
 
-/* 💬 Message */
-#message {
-  margin-top:20px;
-  font-size:18px;
-  line-height:1.6;
-  opacity:0;
-  transition: opacity 1.5s ease;
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
-.show {
+
+h1{
+  font-size:34px;
+  font-weight:700;
+
+  background:linear-gradient(to right,#fff,#ffe6f0);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:0 0 12px rgba(255,255,255,0.5);
+
+  animation:heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat{
+  25%{transform:scale(1.03);}
+  50%{transform:scale(1);}
+  75%{transform:scale(1.05);}
+}
+
+#moodLine{
+  margin-top:-8px;
+  font-size:15px;
+  opacity:0.9;
+  animation:blinkSoft 2s infinite;
+}
+
+@keyframes blinkSoft{
+  50%{
+    opacity:0.5;
+  }
+}
+
+.box{
+  margin-top:28px;
+  padding:24px;
+  border-radius:30px;
+
+  background:rgba(255,255,255,0.14);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+  0 10px 35px rgba(255,105,180,0.25),
+  inset 0 0 20px rgba(255,255,255,0.08);
+
+  animation:floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+  50%{
+    transform:translateY(-4px);
+  }
+}
+
+button{
+  border:none;
+  padding:15px 24px;
+  border-radius:999px;
+
+  background:
+  linear-gradient(45deg,#ff4f8b,#ff85a2);
+
+  color:white;
+
+  font-size:16px;
+  font-weight:600;
+
+  margin-top:16px;
+
+  box-shadow:
+  0 6px 20px rgba(255,0,100,0.35);
+
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+button:active{
+  transform:scale(0.92);
+}
+
+#message{
+  margin-top:20px;
+
+  font-size:18px;
+
+  line-height:1.9;
+
+  white-space:pre-line;
+
+  background:rgba(255,255,255,0.08);
+
+  padding:18px;
+
+  border-radius:22px;
+
+  box-shadow:
+  inset 0 0 15px rgba(255,255,255,0.06);
+
+  opacity:0;
+
+  transition:0.5s;
+}
+
+.show{
   opacity:1 !important;
 }
 
-/* 🎵 Music Button */
-#musicBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(45deg, pink, red);
-  border-radius: 50%;
-  padding: 12px;
-  font-size: 18px;
+#musicBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+
+  background:linear-gradient(45deg,#ff4f8b,#ff85a2);
+
+  border-radius:50%;
+
+  padding:14px;
+
+  font-size:18px;
 }
 
-/* 💕 Floating Hearts */
-.heart {
-  position: fixed;
-  font-size: 18px;
-  animation: float 6s linear infinite;
-}
-@keyframes float {
-  0% {transform: translateY(0); opacity:1;}
-  100% {transform: translateY(-900px); opacity:0;}
+#countdown{
+  font-size:24px;
+  line-height:1.8;
+  text-shadow:0 0 12px rgba(255,255,255,0.5);
 }
 
-/* ⏳ Countdown Style */
-#countdown {
-  font-size: 24px;
-  line-height: 1.6;
-  text-shadow: 0 0 10px pink;
+.chatArea{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-height:500px;
+  overflow:hidden;
 }
+
+.chatMsg{
+  max-width:82%;
+  padding:14px 16px;
+  border-radius:18px;
+  font-size:15px;
+  line-height:1.7;
+  animation:fadeUp 0.5s ease;
+  backdrop-filter: blur(10px);
+}
+
+.left{
+  align-self:flex-start;
+  background:rgba(255,255,255,0.10);
+  border-bottom-left-radius:5px;
+}
+
+.right{
+  align-self:flex-end;
+  background:linear-gradient(45deg,#ff4f8b,#ff0066);
+  border-bottom-right-radius:5px;
+}
+
+.typingBubble{
+  width:80px;
+  padding:12px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.08);
+  align-self:flex-start;
+  animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    opacity:0.5;
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    transform:translateY(20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
+.heart{
+  position:fixed;
+  font-size:18px;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-900px);
+    opacity:0;
+  }
+}
+
+@keyframes floatEmoji{
+  from{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  to{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
 </style>
 </head>
 
 <body onclick="startMusicOnce()">
 
 <h1 id="title">Hey Bettuuu ❤️</h1>
-<p>Yupp… just for you 💕</p>
+
+<p id="moodLine">
+currently missing Bettuuu hours 💗
+</p>
 
 <audio id="bgMusic" loop></audio>
 
 <div class="box">
-  <h2 id="countdown"></h2>
-  <button onclick="showMessage()">Open Today 💌</button>
-  <p id="message"></p>
+
+<h2 id="countdown"></h2>
+
+<button onclick="showMessage()">
+Open Today 💌
+</button>
+
+<p id="message"></p>
+
 </div>
 
-<button onclick="toggleMusic()" id="musicBtn">🎵</button>
+<div class="box">
+
+<h2>🌸 6 April 2026 🌸</h2>
+
+<p>
+The day everything started feeling soft 😌💗
+</p>
+
+<div class="chatArea" id="chatArea"></div>
+
+</div>
+
+<button onclick="toggleMusic()" id="musicBtn">
+🎵
+</button>
 
 <script>
 
-// ❤️ Title animation
 const hearts = ["❤️","💗","💖","💕"];
+
 setInterval(()=>{
-  let h = hearts[Math.floor(Math.random()*hearts.length)];
-  document.getElementById("title").innerText = "Hey Bettuuu " + h;
+
+  let h =
+  hearts[Math.floor(Math.random()*hearts.length)];
+
+  document.getElementById("title").innerText =
+  "Hey Bettuuu " + h;
+
 },2000);
 
-// 💌 Messages
+/* 💌 DAILY MESSAGES */
+
 const messages = [
 
-`Jab Tum chhoti chhoti baatein… jis tarah sab notice karti ho…  
-Monkey ko woh sab secretly bahut pasand hai mella chotu sa bachaaaa 🐒💖`,
-
-`Tum ‘yupp’ bolti ho na… pata nahi kyun…  
+`Tum ‘yupp’ bolti ho na…
+pata nahi kyun…
 par woh mere liye duniya ka sabse cute sound hai 😄💕`,
 
-`Agar feelings ka koi forest hota na…  
-toh tum meri sabse peaceful jagah hoti 🌿💗  
-jahaan m bina kuch bole bas reh sakta…  
-jahaan har cheez slow aur soft feel hoti hai…  
-aur jahaan sirf tum ho… aur ek pyaar bhara sukoon wali feeling ❤️`,
+`Agar feelings ka koi forest hota na…
+toh tum meri sabse peaceful jagah hoti 🌿💗`,
 
-`Tumhe shayad pata bhi nahi…  
-par tum meri daily happiness ka sabse bada reason ho ❤️🥺  
-mtlb chahe din kitna bhi normal ya thoda heavy kyu na ho…  
-tumhari ek chhoti si baat ya bas tumhari presence hi  
-sab kuch better bana deti hai…  
-aur sach bolu, ab aadat si ho gayi hai tumse khush rehne ki 💕`,
+`Tumhe shayad pata bhi nahi…
+par tum meri daily happiness ka sabse bada reason ho ❤️🥺`,
 
-`Kabhi kabhi bas tmhri chat kholke…  
-khud hi smile aa jati hai… bina kisi reason ke 💕  
-jaise screen pe sirf words nahi hote…  
-balki tumhari vibe hoti hai…  
-aur pata bhi nahi chalta kab mood better ho jata h 
-sirf tumhe dekh ke ya tumhe feel karke 💗`,
+`Kabhi kabhi bas tumhari chat kholke…
+khud hi smile aa jati hai 💕`,
 
-`Tum sensitive ho… aur wahi tumhe itna special banata h…  
-tum cheezon ko sirf samajhti nahi… feel karti ho…  
-aur shayad isi wajah se tumhara dil itna beautiful h 💖  
-tum alag ho… aur mujhe wahi pasand h…  
-kyunki tum waise ho jaise sab nahi hote… aur mujhe tum waise hi chahiye 💕`,
+`Tum sensitive ho…
+aur wahi tumhe itna special banata hai 💖`,
 
 `Monkey ka favourite place? 👉 Tumhari baaton mein…  
 kyunki waha main khud ko thoda aur close feel karta hoon tumse…  
@@ -218,17 +403,136 @@ kyunki tumhara day special hone wala hai 💗✨`,
 `Kal tumhara birthday nahi…  
 meri life ka best day anniversary hai ❤️🥺  
 Thank you for existing… seriously 💖`
+
 ];
-// 🎵 Shuffle Songs
-const allSongs = ["song1.mp3","song2.mp3","song3.mp3","song4.mp3"];
+
+/* 💖 MEMORY CHAT */
+
+const chatMemories = [
+
+{
+side:"left",
+text:"Tension lena nahi hota h… tension bs dena hota h 😭💗"
+},
+
+{
+side:"right",
+text:"Kaash m bhi aisi hoti… but m too sensitive 🥺"
+},
+
+{
+side:"left",
+text:"Sensitive hona problem nahi hota Bettuuu 🌿❤️"
+},
+
+{
+side:"right",
+text:"M bas sabko dil se treat karti hu… aur phir hurt ho jati hu 🥺"
+},
+
+{
+side:"left",
+text:"Tum galat nahi ho… bas tumhara dil bahut soft h 😌💗"
+},
+
+{
+side:"right",
+text:"yupp… maybe 😭💕"
+},
+
+{
+side:"left",
+text:"Jab bhi heavy feel ho na… share kar lena ❤️"
+},
+
+{
+side:"right",
+text:"Thankyou for understanding me… seriously 🥺"
+},
+
+{
+side:"left",
+text:"6 April ko honestly idea bhi nahi tha… ki tum itni important ban jaogi 💗"
+}
+
+];
+
+let currentChat = 0;
+
+function showChats(){
+
+  if(currentChat >= chatMemories.length){
+
+    setTimeout(()=>{
+
+      document.getElementById("chatArea").innerHTML = "";
+
+      currentChat = 0;
+
+      showChats();
+
+    },4000);
+
+    return;
+  }
+
+  let area = document.getElementById("chatArea");
+
+  let typing = document.createElement("div");
+
+  typing.className = "typingBubble";
+
+  typing.innerHTML = "typing...";
+
+  area.appendChild(typing);
+
+  setTimeout(()=>{
+
+    typing.remove();
+
+    let msg = document.createElement("div");
+
+    msg.className =
+    `chatMsg ${chatMemories[currentChat].side}`;
+
+    msg.innerHTML =
+    chatMemories[currentChat].text;
+
+    area.appendChild(msg);
+
+    area.scrollTop = area.scrollHeight;
+
+    createHearts();
+
+    currentChat++;
+
+    setTimeout(showChats,2500);
+
+  },1400);
+}
+
+showChats();
+
+/* 🎵 MUSIC */
+
+const allSongs =
+["song1.mp3","song2.mp3","song3.mp3","song4.mp3"];
+
 let lastSong = "";
 
 function getSong(){
+
   let song;
-  do {
-    song = allSongs[Math.floor(Math.random()*allSongs.length)];
-  } while(song === lastSong);
+
+  do{
+
+    song =
+    allSongs[Math.floor(Math.random()*allSongs.length)];
+
+  }while(song === lastSong);
+
   lastSong = song;
+
   return song;
 }
 
@@ -236,95 +540,183 @@ let isPlaying = false;
 let started = false;
 
 function playMusic(){
+
   let music = document.getElementById("bgMusic");
+
   let file = getSong();
 
   if(music.src.indexOf(file) === -1){
+
     music.src = file;
   }
 
   music.volume = 0.3;
+
   music.play();
+
   isPlaying = true;
 }
 
 function startMusicOnce(){
+
   if(!started){
+
     playMusic();
+
     started = true;
   }
 }
 
 function toggleMusic(){
-  let music = document.getElementById("bgMusic");
+
+  let music =
+  document.getElementById("bgMusic");
 
   if(isPlaying){
+
     music.pause();
+
     document.getElementById("musicBtn").innerText = "🎵";
+
     isPlaying = false;
-  } else {
+
+  }else{
+
     playMusic();
+
     document.getElementById("musicBtn").innerText = "⏸️";
   }
 }
 
-// 💌 Show Message
+/* 💌 SHOW MESSAGE */
+
 function showMessage(){
 
   let today = new Date();
+
   let target = new Date("May 27, 2026");
 
-  let diff = Math.ceil((target - today)/(1000*60*60*24));
+  let diff =
+  Math.ceil((target - today)/(1000*60*60*24));
 
-  let index = 27 - diff;
+  let index = 26 - diff;
 
   if(index < 0) index = 0;
-  if(index >= messages.length) index = messages.length - 1;
+
+  if(index >= messages.length)
+  index = messages.length - 1;
 
   let msg = document.getElementById("message");
 
   msg.innerText = messages[index];
+
   msg.classList.remove("show");
 
-  setTimeout(()=> msg.classList.add("show"), 100);
+  setTimeout(()=> msg.classList.add("show"),100);
 
   playMusic();
+
   createHearts();
 }
 
-// 💕 Hearts
+/* 💕 HEARTS */
+
 function createHearts(){
+
   for(let i=0;i<6;i++){
+
     let heart = document.createElement("div");
+
     heart.className = "heart";
-    heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
-    heart.style.left = Math.random()*100 + "vw";
+
+    heart.innerText =
+    hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
     heart.style.top = "100vh";
+
     document.body.appendChild(heart);
 
     setTimeout(()=>heart.remove(),6000);
   }
 }
 
-// ⏳ Real-time Countdown
-let targetDate = new Date("May 27, 2026 00:00:00").getTime();
+/* ✨ FLOATING EMOJIS */
+
+const floatingEmojis =
+["💗","💕","🌸","🥺","✨","💖","😌"];
+
+function createFloatingEmoji(){
+
+  let emoji = document.createElement("div");
+
+  emoji.innerHTML =
+  floatingEmojis[Math.floor(Math.random()*floatingEmojis.length)];
+
+  emoji.style.position = "fixed";
+
+  emoji.style.left = Math.random()*100 + "vw";
+
+  emoji.style.top = "100vh";
+
+  emoji.style.fontSize =
+  (18 + Math.random()*15) + "px";
+
+  emoji.style.opacity = "0.8";
+
+  emoji.style.zIndex = "999";
+
+  emoji.style.pointerEvents = "none";
+
+  emoji.style.animation =
+  "floatEmoji 8s linear forwards";
+
+  document.body.appendChild(emoji);
+
+  setTimeout(()=>emoji.remove(),8000);
+}
+
+setInterval(createFloatingEmoji,1200);
+
+/* ⏳ COUNTDOWN */
+
+let targetDate =
+new Date("May 27, 2026 00:00:00").getTime();
 
 setInterval(()=>{
+
   let now = new Date().getTime();
+
   let gap = targetDate - now;
 
   if(gap <= 0){
-    document.getElementById("countdown").innerHTML = "It’s your day Bettuuu 🎂❤️";
+
+    document.getElementById("countdown").innerHTML =
+    "It’s your day Bettuuu 🎂❤️";
+
     return;
   }
 
-  let d = Math.floor(gap/(1000*60*60*24));
-  let h = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
-  let m = Math.floor((gap%(1000*60*60))/(1000*60));
-  let s = Math.floor((gap%(1000*60))/1000);
+  let d =
+  Math.floor(gap/(1000*60*60*24));
+
+  let h =
+  Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+
+  let m =
+  Math.floor((gap%(1000*60*60))/(1000*60));
+
+  let s =
+  Math.floor((gap%(1000*60))/1000);
 
   document.getElementById("countdown").innerHTML =
-  `💖 ${d} days <br> 💕 ${h} hrs <br> 💗 ${m} min <br> ❤️ ${s} sec`;
+  `💖 ${d} days <br>
+   💕 ${h} hrs <br>
+   💗 ${m} min <br>
+   ❤️ ${s} sec`;
+
 },1000);
 
 </script>
